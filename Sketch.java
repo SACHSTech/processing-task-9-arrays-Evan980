@@ -163,7 +163,10 @@ public class Sketch extends PApplet {
   * reset the speed back to normal and detect movement keys released
   */
   public void keyReleased(){
+    // Resets speed to original
     ballSpeed = 3;
+
+    // Detects when movement keys are released
     if(key == 'w'){
       blnUp = false;
     }
