@@ -3,8 +3,8 @@ import processing.core.PApplet;
 public class Sketch extends PApplet {
 	
   // Variables
-  float[] circleY = new float[15];
-  float[] circleX = new float[15];
+  float[] circleY = new float[20];
+  float[] circleX = new float[20];
   boolean[] ballHideStatus = new boolean[25];
 
   boolean blnUp = false;
@@ -16,8 +16,8 @@ public class Sketch extends PApplet {
   float blueCircleY = 150;
   float blueCircleWidth = 25;
   float blueCircleHeight = 25;
-  float snowWidth = 30;
-  float snowHeight = 30;
+  float snowWidth = 25;
+  float snowHeight = 25;
   int ballSpeed = 3;
   int gameLives = 3;
   boolean mouseClickSnow = false;
@@ -94,7 +94,7 @@ public class Sketch extends PApplet {
   public void blueCircle() {
     // drawing lives and blue circle if there are lives
     for (int i = 1; i <= gameLives; i++){
-      fill(255, 0, 0);
+      fill(255, 255, 0);
       rect(i * 30, 15, 30, 30);
   }
     fill(0, 0, 255);
@@ -111,10 +111,10 @@ public class Sketch extends PApplet {
       blueCircleX -= 3;
     }
     if(blnDown){
-      blueCircleY -= 3;
+      blueCircleY += 3;
     }
     if(blnUp){
-      blueCircleY += 3;
+      blueCircleY -= 3;
     }
   }
 
@@ -151,10 +151,10 @@ public class Sketch extends PApplet {
     }
 
     // Changing speed
-    if(keyCode == UP){
+    if(keyCode == DOWN){
       ballSpeed = 7;
     }
-    if(keyCode == DOWN){
+    if(keyCode == UP){
       ballSpeed = 1;
     }
   }
