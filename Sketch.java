@@ -14,8 +14,8 @@ public class Sketch extends PApplet {
 
   float blueCircleX = 150;
   float blueCircleY = 150;
-  float blueCircleWidth = 20;
-  float blueCircleHeight = 20;
+  float blueCircleWidth = 25;
+  float blueCircleHeight = 25;
   float snowWidth = 30;
   float snowHeight = 30;
   int ballSpeed = 3;
@@ -49,11 +49,12 @@ public class Sketch extends PApplet {
 
     // Checks if out of lives and draws whitescreen
     if (intGameStatus != 0){
-    background(255)
+    background(255);
    }
     else if (intGameStatus == 0){
-    background(0)
-    PUT THINGS IN
+    background(0);
+    blueCircle();
+    snowfall();
   }
 }
 
@@ -81,7 +82,7 @@ public class Sketch extends PApplet {
     }
       
     // Detects if mouse clicks on snowball
-    if(clickOnSnow && dist(mouseX, mouseY, circleX[i], circleY[i])) <= 15){
+    if(mouseClickSnow && dist(mouseX, mouseY, circleX[i], circleY[i]) <= 15){
       ballHideStatus[i] = false;
     }
    } 
@@ -129,6 +130,52 @@ public class Sketch extends PApplet {
   */
   public void mouseReleased(){
     mouseClickSnow = false;
+  }
+
+  /**
+  * Changing speed if up and down is pressed and detecting movement keys
+  */
+  public void keyPressed(){
+    // Movement keys of blue circle
+    if(key == 'w'){
+      blnUp = true;
+    }
+    if(key == 'a'){
+      blnLeft = true;
+    }
+    if(key == 's'){
+      blnDown = true;
+    }
+    if(key == 'd'){
+      blnRight = true;
+    }
+
+    // Changing speed
+    if(keyCode == UP){
+      ballSpeed = 7;
+    }
+    if(keyCode == DOWN){
+      ballSpeed = 1;
+    }
+  }
+
+  /**
+  * reset the speed back to normal and detect movement keys released
+  */
+  public void keyReleased(){
+    ballSpeed = 3;
+    if(key == 'w'){
+      blnUp = false;
+    }
+    if(key == 'a'){
+      blnLeft = false;
+    }
+    if(key == 's'){
+      blnDown = false;
+    }
+    if(key == 'd'){
+      blnRight = false;
+    }
   }
   
 }
